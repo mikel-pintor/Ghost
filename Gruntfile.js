@@ -1078,6 +1078,12 @@ var _              = require('lodash'),
         grunt.registerTask('prod', 'Build JS & templates for production',
             ['concat:prod', 'copy:prod', 'emberBuildProd', 'uglify:prod']);
 
+        // ### Heroku task
+        //
+        // Used when deploying to heroku using this buildpack: https://github.com/mbuchetics/heroku-buildpack-nodejs-grunt
+        grunt.registerTask('heroku:production', 'Build JS & templates for production',
+            ['shell:bower', 'default', 'concat:prod', 'copy:prod', 'emberBuildProd', 'uglify:prod']);
+
         // ### Default asset build
         // `grunt` - default grunt task
         //
